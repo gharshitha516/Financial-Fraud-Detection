@@ -4,10 +4,10 @@ import joblib  # 🔄 Use joblib instead of pickle
 from prophet import Prophet
 import plotly.express as px
 
-st.set_page_config(page_title="Financial Fraud Detection", layout="wide")
+st.set_page_config(page_title="Financial Fraud Detection",page_icon="📈", layout="wide")
 
-st.title("Financial Fraud Detection")
-st.markdown("Track your expenses, detect fraud, and forecast your budget — all in one dashboard.")
+st.title("📈Financial Fraud Detection")
+st.markdown("Manage your finances, detect fraud, track expenses, and forecast budget.")
 
 #✅ Load saved model with joblib
 @st.cache_resource
@@ -17,7 +17,7 @@ def load_model():
 classifier = load_model()
 
 #Upload CSV
-uploaded_file = st.file_uploader("📂 Upload your transaction CSV", type=["csv"])
+uploaded_file = st.file_uploader("📂 Import your transaction CSV ", type=["csv"])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
 
