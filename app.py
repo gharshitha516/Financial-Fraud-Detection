@@ -7,7 +7,7 @@ import plotly.express as px
 st.set_page_config(page_title="Financial Fraud Detection",page_icon="📈", layout="wide")
 
 st.title("📈Financial Fraud Detection")
-st.markdown("Manage your finances, detect fraud, track expenses, and forecast budget.")
+st.markdown("Comprehensive financial management with fraud detection, expense tracking, and budget forecasting.")
 
 #✅ Load saved model with joblib
 @st.cache_resource
@@ -17,7 +17,7 @@ def load_model():
 classifier = load_model()
 
 #Upload CSV
-uploaded_file = st.file_uploader("📂 Import your transaction CSV ", type=["csv"])
+uploaded_file = st.file_uploader("📂 import your transaction CSV ", type=["csv"])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
 
@@ -25,7 +25,7 @@ if uploaded_file is not None:
     if 'trans_date_trans_time' in df.columns:
         df['trans_date_trans_time'] = pd.to_datetime(df['trans_date_trans_time'])
 
-    st.subheader("📊 Transaction Overview")
+    st.subheader("💳 Transaction Review")
     st.write(df.head())
 
     #🏷️ Expense Classification
@@ -54,7 +54,7 @@ if uploaded_file is not None:
         st.info("ℹ️ No 'is_fraud' column in data. Skipping fraud detection.")
 
     # 📈 Budget Forecast with Prophet
-    st.subheader("📈 Monthly Budget Forecast")
+    st.subheader("📆 Monthly Budget Forecast")
     if 'amt' in df.columns and 'trans_date_trans_time' in df.columns:
         monthly = df.groupby(pd.Grouper(key='trans_date_trans_time', freq='M'))['amt'].sum().reset_index()
         monthly.columns = ['ds', 'y']
