@@ -13,7 +13,27 @@ Features
 
     Interactive Visualizations: Explore results through dynamic, interactive charts powered by Plotly.
 
-    Installation
+Technologies Used
 
-    Clone the repository: git clone https://github.com/your-username/financial-fraud-detection.git
+    Python 3.9+
+
+    Streamlit
+
+    Pandas
+
+    scikit-learn
+
+    Prophet
+
+    Plotly
+
+
+Installation
+1. Clone the repository: git clone https://github.com/your-username/financial-fraud-detection.git
 cd financial-fraud-detection
+
+2. Install required packages: pip install -r requirements.txt
+
+3. Place the trained model file expense_classifier.pkl in the project folder.
+
+   
